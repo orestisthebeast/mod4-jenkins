@@ -3,12 +3,22 @@ pipeline{
     stages{
         stage('Pipeline stages'){
             steps {
-                sh "ls"
+            """
+            echo "Sup"
+            pwd
+            whoami
+            """
             }
         }
         stage('Second stage'){
             steps {
-                sh "pwd"
+            """
+            touch 1.txt
+            echo "echo I am inside the text file!" > 1.txt
+            cat 1.txt
+            rm 1.txt
+            
+            """
             }
         }
     }
